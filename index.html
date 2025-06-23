@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Message Sender</title>
+  <link rel="stylesheet" href="qrcode.css">
+</head>
+<body>
+  <h1>Create a Special Message 🎁</h1>
+  <input type="text" id="titleInput" placeholder="Enter title (e.g. Happy Birthday)">
+  <textarea id="messageInput" placeholder="Write your message here..."></textarea>
+  <label class="upload-btn">
+    Upload Photos/Videos
+    <input type="file" id="mediaInput" multiple accept="image/*,video/*">
+  </label>
+  <div class="preview-grid" id="preview"></div>
+  <button class="send-btn" onclick="generateLink()">Generate QR Code</button>
+  <div id="qrCode"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+  <script src="qrcode.js"></script>
+</body>
+</html>
