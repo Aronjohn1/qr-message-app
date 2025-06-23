@@ -1,37 +1,33 @@
-const params = new URLSearchParams(location.search);
-const id = params.get("id");
-const data = JSON.parse(localStorage.getItem(id));
-if (!data) {
-  document.body.innerHTML = "<h2 style='color: red;'>❌ Message not found.</h2>";
-  throw new Error("Message not found");
-}
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+    const data = JSON.parse(localStorage.getItem(id));
 
+    if (!data) {
+      document.body.innerHTML = "<h2 style='color: red;'>❌ Message not found.</h2>";
+      throw new Error("Message not found");
+    }
 
+    document.getElementById("theTitle").textContent = data.title || "🎁 A Special Message";
+    document.getElementById("theMessage").textContent = data.message;
 
+    let index = 0;
+    const mediaDiv = document.getElementById("mediaContainer");
 
-document.getElementById("theTitle").textContent = data.title || "🎁 A Special Message";
-document.getElementById("theMessage").textContent = data.message;
-const viewerLink = `${window.location.origin}/viewer.html?id=${uniqueId}`;
+    function showNext() {
+      if (index >= data.files.length) return;
+      mediaDiv.innerHTML = "";
 
-let index = 0;
-const mediaDiv = document.getElementById("mediaContainer");
+      const file = data.files[index];
+      const isImg = file.startsWith("data:image");
 
-function showNext() {
-if (index >= data.files.length) return;
-mediaDiv.innerHTML = "";
+      const el = document.createElement(isImg ? "img" : "video");
+      el.src = file;
+      el.className = "media";
+      if (!isImg) el.controls = true;
 
-const file = data.files[index];
-const isImg = file.startsWith("data:image");
+      mediaDiv.appendChild(el);
+      index++;
+      setTimeout(showNext, 3000); // change every 3s
+    }
 
-const el = document.createElement(isImg ? "img" : "video");
-el.src = file;
-el.className = "media";
-if (!isImg) el.controls = true;
-
-mediaDiv.appendChild(el);
-index++;
-setTimeout(showNext, 4000);
-}
-
-showNext();
-
+    showNext();
