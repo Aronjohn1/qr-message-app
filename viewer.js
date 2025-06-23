@@ -11,7 +11,7 @@ if (!data) {
 
 document.getElementById("theTitle").textContent = data.title || "🎁 A Special Message";
 document.getElementById("theMessage").textContent = data.message;
-
+const viewerLink = `${window.location.origin}/viewer.html?id=${uniqueId}`;
 
 let index = 0;
 const mediaDiv = document.getElementById("mediaContainer");
