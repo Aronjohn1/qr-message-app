@@ -11,7 +11,7 @@
 - Viewer with media slideshow
 
 ## How to Use
-1. Open `index.html` in your browser
+1. Open `qrcode.html` in your browser
 2. Upload media, enter message and title
 3. Click "Send & Generate QR"
 4. Scan the QR to view your message!
