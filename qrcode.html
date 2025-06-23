@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Message</title>
+    <link rel="stylesheet" href="qrcode.css">
+</head>
+<body>
+
+    <div class="wrapper-send">
+    <input type="text" id="titleInput" class="titlinput" placeholder="Enter your title (e.g., Happy Birthday 🎉)">
+    <label class="upload-btn">
+      ⬆️ Upload files
+      <input type="file" id="mediaInput" multiple accept="image/*,video/*">
+    </label>
+
+    <div class="preview-grid" id="preview"></div>
+    <textarea id="messageInput" placeholder="Send Message..."></textarea>
+    <br>
+    <button class="send-btn" onclick="generateLink()">Send Message</button>
+
+    <div id="qrCode"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script src="qrcode.js"></script>
+ </div>
+</body>
+</html>
